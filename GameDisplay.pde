@@ -2,6 +2,7 @@ class GameDisplay{
   
   public static final float DEFAULT_INIT_TIMER = 60;
   
+  
   private GameBoard parentGameBoard;
   
   //We will have a timer
@@ -21,10 +22,11 @@ class GameDisplay{
   
   public void render(){
     fill(#33B2D0);
-    textSize(32);
-    textAlign(LEFT);
-    text("Food: " + (int)eatenWorms, 10,40);
-    text("Time: "+ (int)timer, 10, 70);
+    textSize(20);
+    textFont(parentGameBoard.mainFont);
+    textAlign(CENTER);
+    text("Food: " + (int)eatenWorms, parentGameBoard.screenSize.x/4,50);
+    text("Time: "+ (int)timer, parentGameBoard.screenSize.x/4*3, 50);
   }
   
   public void update(){

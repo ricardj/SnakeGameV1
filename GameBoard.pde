@@ -6,6 +6,8 @@ class GameBoard{
   
   private GameState stateMachine;
   
+  public PFont mainFont;
+  
   private PImage gameBackground;
   
   public static final int DEFAULT_LENGTH = 1;
@@ -20,7 +22,9 @@ class GameBoard{
     this.screenSize = new PVector(GAME_WIDTH,GAME_HEIGHT);
     surface.setSize(GAME_WIDTH,GAME_HEIGHT);
    
-     gameBackground = loadImage("snakeGameBackground.png");
+    gameBackground = loadImage("snakeGameBackground.png");
+    
+    mainFont = loadFont("SpyAgencyExpanded.vlw");
     
     initGame();
   }
@@ -44,7 +48,7 @@ class GameBoard{
       
       case GameState.END_GAME:
        //Draw background
-       background(50);
+       drawBackground();
        
        //Draw the snake
        snake.render();

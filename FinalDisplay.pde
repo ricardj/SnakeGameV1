@@ -19,7 +19,9 @@ class FinalDisplay{
          DEFAULT_DISPLAY_HEIGHT, 
          7);
     fill(50);
-    textSize(50);
+    
+    textFont(parentGameBoard.mainFont);
+    textSize(40);
     textAlign(CENTER);
     text("Time is out!",parentGameBoard.screenSize.x/2,
                         parentGameBoard.screenSize.y/2-DEFAULT_DISPLAY_HEIGHT/5);

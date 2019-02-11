@@ -1,6 +1,6 @@
 class Snake{
- public static final int DEFAULT_SPEED = 5;
- public static final int DEFAULT_BODY_PADDING = 50;         //Space between Body parts
+ public static final int DEFAULT_SPEED = 15;
+ public static final int DEFAULT_BODY_PADDING = 40;         //Space between Body parts
  public static final int DEFAULT_MOUSE_HEAD_OFFSET = 3;
  public SnakePortion[] body;                                //Array of body parts
  private PVector oldMousePosition;
