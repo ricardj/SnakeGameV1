@@ -17,21 +17,8 @@ class GameBoard{
   GameBoard(){
     this.screenSize = new PVector(GAME_WIDTH,GAME_HEIGHT);
     surface.setSize(GAME_WIDTH,GAME_HEIGHT);
- 
-    
-    //INIT the snake in the middle of the screen
-    PVector initSnakePosition = PVector.div(screenSize,2);
-    snake = new Snake(DEFAULT_LENGTH, initSnakePosition);
-    
-    gameDisplay = new GameDisplay(this);
-    
-    finalDisplay = new FinalDisplay(this);
-    
-    currentWorm = new Worm(new PVector());
-    currentWorm.setRandomPosition((int)screenSize.x,(int)screenSize.y);
-    
-    stateMachine = new GameState();
-    stateMachine.currentState = GameState.PLAYING;
+   
+     initGame();
   }
   
   public void render(){
@@ -123,5 +110,28 @@ class GameBoard{
   private void checkEndGame(){
     //We check id the game is ended
     if(gameDisplay.timer <= 0) stateMachine.currentState = GameState.END_GAME;
+  }
+  
+  public void keyPressed(){
+    if(stateMachine.currentState == GameState.END_GAME){
+      println("Some Key was pressed. Restarting game.");
+      initGame();
+    }
+  }
+  
+  private void initGame(){
+      //INIT the snake in the middle of the screen
+      PVector initSnakePosition = PVector.div(screenSize,2);
+      snake = new Snake(DEFAULT_LENGTH, initSnakePosition);
+      
+      gameDisplay = new GameDisplay(this);
+      
+      finalDisplay = new FinalDisplay(this);
+      
+      currentWorm = new Worm(new PVector());
+      currentWorm.setRandomPosition((int)screenSize.x,(int)screenSize.y);
+      
+      stateMachine = new GameState();
+      stateMachine.currentState = GameState.PLAYING;
   }
 }

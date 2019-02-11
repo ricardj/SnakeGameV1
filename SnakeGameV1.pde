@@ -6,7 +6,7 @@ void setup(){
   surface.setResizable(true);
   surface.setLocation(300,100);
   
-  print("Initialising Snake game");
+  println("Initialising Snake game");
   
   gameBoard = new GameBoard();
   
@@ -15,4 +15,8 @@ void setup(){
 void draw(){
   gameBoard.update();
   gameBoard.render();
+}
+
+void keyPressed(){
+  gameBoard.keyPressed();
 }

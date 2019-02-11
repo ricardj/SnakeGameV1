@@ -1,6 +1,6 @@
 class GameDisplay{
   
-  public static final float DEFAULT_INIT_TIMER = 5;
+  public static final float DEFAULT_INIT_TIMER = 60;
   
   private GameBoard parentGameBoard;
   
