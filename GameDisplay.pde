@@ -20,7 +20,7 @@ class GameDisplay{
   }
   
   public void render(){
-    fill(100);
+    fill(#33B2D0);
     textSize(32);
     textAlign(LEFT);
     text("Food: " + (int)eatenWorms, 10,40);

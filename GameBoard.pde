@@ -6,6 +6,8 @@ class GameBoard{
   
   private GameState stateMachine;
   
+  private PImage gameBackground;
+  
   public static final int DEFAULT_LENGTH = 1;
   public static final int DEFAULT_WORM_EAT_OFFSET = 30;
   private PVector screenSize;
@@ -18,7 +20,9 @@ class GameBoard{
     this.screenSize = new PVector(GAME_WIDTH,GAME_HEIGHT);
     surface.setSize(GAME_WIDTH,GAME_HEIGHT);
    
-     initGame();
+     gameBackground = loadImage("snakeGameBackground.png");
+    
+    initGame();
   }
   
   public void render(){
@@ -26,7 +30,7 @@ class GameBoard{
     switch(stateMachine.currentState){
       case GameState.PLAYING:
        //Draw background
-       background(50);
+       drawBackground();
        
        //Draw the snake
        snake.render();
@@ -133,5 +137,9 @@ class GameBoard{
       
       stateMachine = new GameState();
       stateMachine.currentState = GameState.PLAYING;
+  }
+  
+  private void drawBackground(){
+    image(gameBackground,0,0,screenSize.x,screenSize.y);
   }
 }
