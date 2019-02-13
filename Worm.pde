@@ -7,7 +7,7 @@ class Worm{
  
  private PImage wormImage;
  
- Worm(PVector position){  //Unique constructor which starts with a position
+ Worm(PVector position){  
    this.position = position;
    wormImage = loadImage("enemy.png");  //We load the image that will be displayed later in the game
  }

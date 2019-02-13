@@ -1,5 +1,4 @@
 class GameBoard{
-  //Remember that those are on the setup method
   static final int GAME_WIDTH = 800;
   static final int GAME_HEIGHT = 600;
   
@@ -101,7 +100,6 @@ class GameBoard{
     
     headPosition.set(displayHeadPositionX%GameBoard.GAME_WIDTH,displayHeadPositionY%GameBoard.GAME_HEIGHT);
     if(headPosition.sub(currentWorm.position).mag() <= DEFAULT_WORM_EAT_OFFSET){
-      //TODO: we increase the counter of the game display
       
       //We add a body part to the snake
       snake.addBodyPart();

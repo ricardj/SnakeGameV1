@@ -3,7 +3,7 @@ GameBoard gameBoard;
 void setup(){
   
   size(0,0);
-  surface.setResizable(true);
+  surface.setResizable(false);
   surface.setLocation(300,100);
   
   println("Initialising Snake game");

@@ -1,7 +1,6 @@
 class Snake{
  public static final int DEFAULT_SPEED = 15;
  public static final int DEFAULT_BODY_PADDING = 40;         //Space between Body parts
- public static final int DEFAULT_MOUSE_HEAD_OFFSET = 3;
  public SnakePortion[] body;                                //Array of body parts
  private PVector oldMousePosition;
  
@@ -29,8 +28,6 @@ class Snake{
  //Function which appends a new body part to the already existing body or head
  public void addBodyPart(){
    int bodyLength = body.length;
-   //For the position, we take the direction of the previous one and we take it backwards the direction
-   //PVector startPosition = PVector.mult(body[bodyLength-1].direction,-DEFAULT_BODY_PADDING);
    PVector startPosition = new PVector().set(body[bodyLength-1].position);
    SnakePortion newPart = new SnakePortion(startPosition, new PVector(0,0), new PVector(0,0));  //The new part is created in the same place which the previos part was located.
    body = (SnakePortion[])append(body,newPart);
