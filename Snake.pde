@@ -12,28 +12,36 @@ class Snake{
    
    oldMousePosition = new PVector(mouseX, mouseY);
  }
+ 
+ //Function which creates the head of the snake at the given position
  private void createHead(PVector position){
    body = new SnakePortion[1];
-   SnakePortion head = new SnakePortion(position, new PVector(0,0), new PVector(0,0));
+   //We create the new snake portion with the given position abd with no inicial velocity or acceleration.
+   SnakePortion head = new SnakePortion(position, new PVector(0,0), new PVector(0,0));  
    body[0] = head;
  }
+ 
+ //Function wich creates a full snake body (without the head included) with the given length.
  private void createBody(int length){
    for(int i = 1; i < length; i++) addBodyPart();
  }
  
+ //Function which appends a new body part to the already existing body or head
  public void addBodyPart(){
    int bodyLength = body.length;
    //For the position, we take the direction of the previous one and we take it backwards the direction
    //PVector startPosition = PVector.mult(body[bodyLength-1].direction,-DEFAULT_BODY_PADDING);
    PVector startPosition = new PVector().set(body[bodyLength-1].position);
-   SnakePortion newPart = new SnakePortion(startPosition, new PVector(0,0), new PVector(0,0));
+   SnakePortion newPart = new SnakePortion(startPosition, new PVector(0,0), new PVector(0,0));  //The new part is created in the same place which the previos part was located.
    body = (SnakePortion[])append(body,newPart);
  }
  
+ //Function which return the lenght of the snake.
  public int snakeSize(){
    return body.length-1;
  }
  
+ //
  public SnakePortion getHead(){
    return body[0];
  }
